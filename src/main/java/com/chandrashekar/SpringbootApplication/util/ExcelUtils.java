@@ -23,9 +23,11 @@ public class ExcelUtils {
 
 	public static List<InstallationDetails> excelToTutorials(InputStream is) {
 		List<InstallationDetails> installDetailsList = new ArrayList<InstallationDetails>();
+		
 		try {
 			Workbook workbook = new XSSFWorkbook(is);
-			Sheet sheet = workbook.getSheet(SHEET);
+			
+			Sheet sheet = workbook.getSheetAt(0);
 			Iterator<Row> rows = sheet.iterator();
 			int rowNumber = 0;
 			while (rows.hasNext()) {
@@ -67,7 +69,7 @@ public class ExcelUtils {
 						installDetails.setDcc(currentCell.getStringCellValue());
 					}
 					if (cellIdx == 8) {
-						installDetails.setDccId(currentCell.getStringCellValue());
+						installDetails.setDccId(String.valueOf(currentCell.getNumericCellValue()));
 					}
 					if (cellIdx == 9) {
 						installDetails.setDccType(currentCell.getStringCellValue());

@@ -45,16 +45,14 @@ public class InstallationController {
 	    return message;
 	  }
 	
-	@PostMapping("/")
-    public String uploadMultipartFile(@RequestParam("uploadfile") MultipartFile file, Model model) {
-		try {
-			excelService.save(file);
-			model.addAttribute("message", "File uploaded successfully!");
-		} catch (Exception e) {
-			model.addAttribute("message", "Fail! -> uploaded filename: " + file.getOriginalFilename());
-		}
-        return "multipartfile/uploadform.html";
-    }
+	/*
+	 * @PostMapping("/") public String
+	 * uploadMultipartFile(@RequestParam("uploadfile") MultipartFile file, Model
+	 * model) { try { excelService.save(file); model.addAttribute("message",
+	 * "File uploaded successfully!"); } catch (Exception e) {
+	 * model.addAttribute("message", "Fail! -> uploaded filename: " +
+	 * file.getOriginalFilename()); } return "multipartfile/uploadform.html"; }
+	 */
 	
 	/*
 	 * @GetMapping("/fromFile") public String uploadFile1(@RequestParam(), Model
